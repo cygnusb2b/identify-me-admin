@@ -15,6 +15,12 @@
       <li class="nav-item">
         {{#link-to "integration-service" class="nav-link"}}Services{{/link-to}}
       </li>
+      <li class="nav-item dropdown">
+       {{#-bs/nav/link-dropdown "campaign" id="nav-campaign-items"}}Campaigns{{/-bs/nav/link-dropdown}}
+        <div class="dropdown-menu" aria-labelledby="nav-campaign-items">
+          {{#link-to "campaign.email-signup" class="dropdown-item"}}Email Signup{{/link-to}}
+        </div>
+      </li>
     </ul>
   </div>
 {{/-bs/navbar}}

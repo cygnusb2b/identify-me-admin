@@ -7,11 +7,17 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-   this.route('login');
+  this.route('login');
 
   this.route('integration-service', function() {
-    this.route('edit', { path: '/edit/:id' });
-    this.route('create');
+    this.route('create', { path: '/create/:type' });
+    this.route('edit', { path: '/edit/:type/:id' });
+  });
+  this.route('campaign', function() {
+    this.route('email-signup', function() {
+      this.route('create', { path: '/create/:type' });
+      this.route('edit', { path: '/edit/:type/:id' });
+    });
   });
 });
 

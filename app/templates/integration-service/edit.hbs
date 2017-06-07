@@ -1,0 +1,9 @@
+{{#-bs/row}}
+  {{#-bs/col}}
+    <h3 class="mb-0">Edit Service {{model.name}}</h3>
+  {{/-bs/col}}
+{{/-bs/row}}
+<hr>
+{{integration-service/manage model=model}}
+<hr>
+{{integration-service/email-types service=model}}

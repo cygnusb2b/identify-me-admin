@@ -1,0 +1,55 @@
+<div class="btn-group dropup create float-right fixed-bottom">
+  <button class="btn btn-success dropdown-toggle" type="button" id="integration-service-create-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{-ion 'android-create'}} Create
+  </button>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="integration-service-create-dropdown">
+    {{#link-to "integration-service.create" "omeda" class="dropdown-item"}}Omeda{{/link-to}}
+  </div>
+</div>
+
+{{!-- {{#-bs/button 'secondary' class='fixed-bottom' click=(route-action 'scrollToTop')}}{{-ion 'chevron-up'}}{{/-bs/button}} --}}
+
+<div class="row">
+  <div class="col">
+    <h3 class="float-left mb-0">Services</h3>
+  </div>
+</div>
+<hr>
+<div class="row mb-4">
+  <div class="col">
+    <div class="row">
+      <div class="col-8 col-sm-6">
+        {{ partial 'list/search-controls'}}
+      </div>
+      <div class="col-4 col-sm-6">
+        {{ partial 'list/filters' }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-4">
+  <div class="col">
+    <div class="list-group">
+      {{#each model as |service|}}
+        {{#link-to "integration-service.edit" "omeda" service.id class="list-group-item list-group-item-action flex-column align-items-start"}}
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{service.name}}</h5>
+            {{!-- <small>{{#if campaign.updatedDate}}{{moment-from-now campaign.updatedDate}}{{/if}}</small> --}}
+          </div>
+          <p class="mb-1">{{service.type}}</p>
+          <small>{{service.id}}</small>
+        {{/link-to}}
+      {{else}}
+        <h5 class="text-primary">No results found.</h5>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    {{ partial 'list/pagination' }}
+  </div>
+</div>
+

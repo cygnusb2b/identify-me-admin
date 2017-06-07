@@ -1,5 +1,5 @@
 import attr from 'ember-data/attr';
-import IntegrationService from 'radix/models/integration-service';
+import IntegrationService from 'admin/models/integration-service';
 
 export default IntegrationService.extend({
   appId      : attr('string'),

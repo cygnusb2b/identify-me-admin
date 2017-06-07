@@ -1,0 +1,34 @@
+{{#-bs/row}}
+  {{#-bs/col}}
+    <h5 class="mb-0 float-left">Email Deployment Types</h5>
+    {{#-bs/button "info" size="small" class="float-right" outline=true click=(action "retrieve")}}{{-ion "android-download"}} Retrieve{{/-bs/button}}
+  {{/-bs/col}}
+{{/-bs/row}}
+<hr>
+{{#-bs/row}}
+  {{#-bs/col}}
+    {{#if loading}}
+      <small class="text-muted">Loading deployment types, please wait...</small>
+      {{#-bs/progress}}
+        {{-bs/progress/bar value=100 animated=true}}
+      {{/-bs/progress}}
+    {{/if}}
+    {{#if loaded}}
+      {{#-bs/row}}
+        {{#-bs/col}}
+          {{#each deploymentTypesSorted as |type|}}
+            <div class="card mb-3">
+              <div class="card-block">
+                <small class="card-text text-muted">ID: {{ type.identifier }}</small>
+                <p class="card-text">{{ type.name }}</p>
+              </div>
+            </div>
+          {{else}}
+            <h6 class="text-primary">No deployment types found.</h6>
+          {{/each}}
+        {{/-bs/col}}
+      {{/-bs/row}}
+    {{/if}}
+  {{/-bs/col}}
+{{/-bs/row}}
+

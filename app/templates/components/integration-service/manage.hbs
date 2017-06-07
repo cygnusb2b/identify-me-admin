@@ -1,0 +1,48 @@
+{{#-bs/row}}
+  {{#-bs/col}}
+    <div class="form-group">
+      <label for="integration-service-name" class="sr-only">Name</label>
+      {{input
+        id="integration-service-name"
+        type="text"
+        value=model.name
+        aria-describedby="integration-service-name-help"
+        class="form-control"
+        placeholder="Name"
+      }}
+      <small id="integration-service-name-help" class="form-text text-muted">
+        A friendly name for the service settings.
+      </small>
+    </div>
+  {{/-bs/col}}
+{{/-bs/row}}
+
+{{#if formName}}
+  {{ partial formName }}
+{{/if}}
+
+{{#-bs/row}}
+  {{#-bs/col}}
+    {{#-bs/button "success" click=(action "saveService")}}
+      {{-ion "checkmark-round"}} Save
+    {{/-bs/button}}
+    {{#-bs/button "info" class="mx-1" click=(action "testService") disabled=(eq canTest false)}}
+      {{-ion "paper-airplane"}} Test
+    {{/-bs/button}}
+    {{#-bs/button "secondary" click=(action "confirmClose") class="float-right" }}
+      {{-ion "close-round"}} Cancel
+    {{/-bs/button}}
+  {{/-bs/col}}
+{{/-bs/row}}
+
+{{#-bs/row class="mt-2"}}
+  {{#-bs/col}}
+    {{#if test.isRunning}}
+      <small class="text-muted">Testing service, please wait...</small>
+      {{#-bs/progress}}
+        {{-bs/progress/bar value=100 animated=true}}
+      {{/-bs/progress}}
+    {{/if}}
+  {{/-bs/col}}
+{{/-bs/row}}
+

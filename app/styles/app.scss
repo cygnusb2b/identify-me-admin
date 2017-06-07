@@ -1,12 +1,16 @@
-@import "bower_components/bootswatch/cosmo/variables";
+@import "bower_components/bootswatch/yeti/variables";
 @import "bower_components/bootstrap/scss/bootstrap";
-@import "bower_components/bootswatch/cosmo/bootswatch";
+@import "bower_components/bootswatch/yeti/bootswatch";
 
 /* sandstone is also a pretty cool theme, and try darkly if you want the blackness! */
 
 body {
     margin-top: 70px;
     margin-bottom: 50px;
+}
+
+.fixed-bottom.create {
+    left: inherit;
 }
 
 .loading-overlay {

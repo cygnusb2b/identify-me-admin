@@ -1,0 +1,69 @@
+{{#-bs/row}}
+  {{#-bs/col md=6}}
+    <div class="form-group">
+      <label for="integration-service-omeda-clientKey" class="sr-only">Client Key</label>
+      {{input
+        id="integration-service-omeda-clientKey"
+        type="text"
+        value=model.clientKey
+        aria-describedby="integration-service-omeda-clientKey-help"
+        class="form-control"
+        placeholder="Client Key"
+      }}
+      <small id="integration-service-omeda-clientKey-help" class="form-text text-muted">
+        The API Client Key (ex: client_foo).
+      </small>
+    </div>
+  {{/-bs/col}}
+  {{#-bs/col md=6}}
+    <div class="form-group">
+      <label for="integration-service-omeda-brandKey" class="sr-only">Brand Key</label>
+      {{input
+        id="integration-service-omeda-brandKey"
+        type="text"
+        value=model.brandKey
+        aria-describedby="integration-service-omeda-brandKey-help"
+        class="form-control"
+        placeholder="Brand Key"
+      }}
+      <small id="integration-service-omeda-brandKey-help" class="form-text text-muted">
+        The brand abbreviation/identifier (ex: somedb).
+      </small>
+    </div>
+  {{/-bs/col}}
+{{/-bs/row}}
+
+{{#-bs/row}}
+  {{#-bs/col md=6}}
+    <div class="form-group">
+      <label for="integration-service-omeda-appId" class="sr-only">App ID</label>
+      {{input
+        id="integration-service-omeda-appId"
+        type="text"
+        value=model.appId
+        aria-describedby="integration-service-omeda-appId-help"
+        class="form-control"
+        placeholder="App ID"
+      }}
+      <small id="integration-service-omeda-appId-help" class="form-text text-muted">
+        The API AppID (ex: c4823869-d081-4fd9-bdae-1d859adbf664).
+      </small>
+    </div>
+  {{/-bs/col}}
+  {{#-bs/col md=6}}
+    <div class="form-group">
+      <label for="integration-service-omeda-inputId" class="sr-only">Input ID</label>
+      {{input
+        id="integration-service-omeda-inputId"
+        type="text"
+        value=model.inputId
+        aria-describedby="integration-service-omeda-inputId-help"
+        class="form-control"
+        placeholder="Input ID"
+      }}
+      <small id="integration-service-omeda-inputId-help" class="form-text text-muted">
+        The API InputID (ex: 4903H2457689A7N).
+      </small>
+    </div>
+  {{/-bs/col}}
+{{/-bs/row}}

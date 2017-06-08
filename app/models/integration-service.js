@@ -6,6 +6,9 @@ const { computed } = Ember;
 
 export default Model.extend({
   name: attr('string'),
+  fullName: computed('name', 'type', function() {
+    return `${this.get('name')} (${this.get('type')})`;
+  }),
   type: computed('typeKey', function() {
     const parts = this.get('typeKey').split('-');
     return parts.map((part) => Ember.String.capitalize(part)).join(' ');

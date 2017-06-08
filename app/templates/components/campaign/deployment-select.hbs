@@ -1,0 +1,16 @@
+<label>Deployment Type</label>
+{{#if isServiceSelected}}
+  {{#if loading}}
+    <small class="text-muted">Loading, please wait...</small>
+    {{#-bs/progress}}
+      {{-bs/progress/bar value=100 animated=true}}
+    {{/-bs/progress}}
+  {{else}}
+    {{-bs/forms/custom-select class="form-control" valuePath="identifier" labelPath="fullName" options=typesSorted value=_selected}}
+  {{/if}}
+{{else}}
+  {{#-bs/forms/custom-select class="form-control" disabled=true}}
+    <option selected>Select a service to continue</option>
+  {{/-bs/forms/custom-select}}
+{{/if}}
+

@@ -15,8 +15,8 @@ Router.map(function() {
   });
   this.route('campaign', function() {
     this.route('email-signup', function() {
-      this.route('create', { path: '/create/:type' });
-      this.route('edit', { path: '/edit/:type/:id' });
+      this.route('create');
+      this.route('edit', { path: '/edit/:id' });
     });
   });
 });

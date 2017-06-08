@@ -1,0 +1,9 @@
+<label>Service</label>
+{{#if loading}}
+  <small class="text-muted">Loading, please wait...</small>
+  {{#-bs/progress}}
+    {{-bs/progress/bar value=100 animated=true}}
+  {{/-bs/progress}}
+{{else}}
+  {{-bs/forms/custom-select class="form-control" valuePath="id" labelPath="fullName" options=services value=selected onChange=(action "selectService")}}
+{{/if}}

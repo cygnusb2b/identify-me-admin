@@ -1,0 +1,21 @@
+<p class="card-text">Add websites and page elements where this component should be automatically loaded.</p>
+<div class="row">
+  <div class="col">
+    {{#each targets as |target index|}}
+      {{campaign/email-signup/target
+        class="mb-3"
+        target=target
+        index=index
+        on-change=(action "checkValidity")
+        on-destroy=(action "remove")
+      }}
+    {{/each}}
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    {{#-bs/button "success" outline=true size="small" click=(action "add")}}
+      {{-ion "plus-round"}} Add
+    {{/-bs/button}}
+  </div>
+</div>

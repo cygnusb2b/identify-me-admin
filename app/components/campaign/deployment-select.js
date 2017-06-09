@@ -30,4 +30,10 @@ export default Component.extend({
 
   typesSort: ['name'],
   typesSorted: computed.sort('types', 'typesSort'),
+
+  actions: {
+    change() {
+      this.sendAction('on-change', this.get('selected'));
+    },
+  },
 });

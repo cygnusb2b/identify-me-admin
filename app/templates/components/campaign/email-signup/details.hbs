@@ -1,0 +1,58 @@
+{{#-bs/row}}
+  {{#-bs/col sm=6}}
+    {{campaign/service-select
+      services=services
+      service=campaign.service
+      on-service-change=(action "loadDeployments")
+      loading=isLoading.services
+    }}
+  {{/-bs/col}}
+  {{#-bs/col sm=6}}
+    {{campaign/deployment-select
+      isServiceSelected=hasService
+      types=deploymentTypes
+      selected=campaign.deploymentId
+      loading=isLoading.deployments
+      deploymentName=campaign.deploymentName
+      on-change=(action "checkValidity")
+    }}
+  {{/-bs/col}}
+{{/-bs/row}}
+<hr>
+{{#-bs/row}}
+  {{#-bs/col sm=6}}
+    <div class="form-group">
+      <label>Call to Action</label>
+      {{input type="text" class="form-control" value=campaign.callToAction placeholder=defaults.cta}}
+    </div>
+  {{/-bs/col}}
+  {{#-bs/col sm=6}}
+    <div class="form-group">
+      <label>Submit Button Value</label>
+      {{input type="text" class="form-control" value=campaign.buttonValue placeholder=defaults.button}}
+    </div>
+  {{/-bs/col}}
+{{/-bs/row}}
+{{#-bs/row}}
+  {{#-bs/col}}
+    <div class="form-group">
+      <label>Description</label>
+      {{textarea class="form-control" value=campaign.description placeholder=defaults.desc}}
+    </div>
+  {{/-bs/col}}
+{{/-bs/row}}
+<hr>
+{{#-bs/row}}
+  {{#-bs/col sm=6}}
+    <div class="form-group">
+      <label>Campaign Name</label>
+      {{input type="text" class="form-control" value=campaign.name}}
+    </div>
+  {{/-bs/col}}
+  {{#-bs/col sm=6}}
+    <div class="form-group">
+      <label>Promo Code</label>
+      {{input type="text" class="form-control" value=campaign.promoCode}}
+    </div>
+  {{/-bs/col}}
+{{/-bs/row}}

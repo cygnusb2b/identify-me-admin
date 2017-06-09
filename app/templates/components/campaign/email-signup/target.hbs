@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="input-group col-lg-4 pr-lg-0 mb-1 mb-lg-0">
+    <span class="input-group-addon">
+      <small>
+        Site
+      </small>
+    </span>
+    {{input type="text" class="form-control form-control-sm" value=target.host placeholder="www.domain-name.com"
+    key-up=(action "change")}}
+  </div>
+  <div class="input-group col-lg-4 px-lg-0 mb-1 mb-lg-0">
+    <span class="input-group-addon">
+      <small>
+        Path
+      </small>
+    </span>
+    {{input type="text" class="form-control form-control-sm" value=target.path placeholder="/some-path/name"
+    key-up=(action "change")}}
+  </div>
+  <div class="input-group col-lg-4 pl-lg-0 mb-1 mb-lg-0">
+    <span class="input-group-addon">
+      <small>
+        Selector
+      </small>
+    </span>
+    {{input type="text" class="form-control form-control-sm" value=target.selector placeholder="#selector"
+    key-up=(action "change")}}
+    <span class="input-group-btn">
+      {{#-bs/button "warning" class="pl-2 pr-2" outline=true size="small" click=(action "destroy")}}
+        {{-ion "close-circled" class="ml-1 mr-1"}}
+      {{/-bs/button}}
+    </span>
+  </div>
+</div>
+

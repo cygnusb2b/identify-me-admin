@@ -1,62 +1,47 @@
-{{#-bs/row}}
-  {{#-bs/col xs=6}}
-    {{campaign/service-select
-      isServiceSelected=hasService
-      services=services
-      service=campaign.service
-      on-service-change=(action "loadDeployments")
-      loading=isLoading.services
-    }}
-  {{/-bs/col}}
-  {{#-bs/col xs=6}}
-    {{campaign/deployment-select
-      isServiceSelected=hasService
-      types=deploymentTypes
-      selected=campaign.deploymentId
-      loading=isLoading.deployments
-      deploymentName=campaign.deploymentName
-    }}
-  {{/-bs/col}}
-{{/-bs/row}}
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" href="#email-signup-details" data-toggle="pill" role="tab">
+          Details
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#email-signup-targets" data-toggle="pill" role="tab">
+          Targets
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#email-signup-hooks" data-toggle="pill" role="tab">
+          Hooks
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#email-signup-embed-code" data-toggle="pill" role="tab">
+          Embed Code
+        </a>
+      </li>
+    </ul>
+  </div>
 
-{{#-bs/row}}
-  {{#-bs/col xs=6}}
-    <div class="form-group">
-      <label>Call to Action</label>
-      {{input type="text" class="form-control" value=campaign.callToAction placeholder=defaults.cta}}
+  <div class="tab-content card-block">
+    <div class="tab-pane active" id="email-signup-details" role="tabpanel">
+      {{campaign/email-signup/details campaign=campaign on-check-validity=(action "setDetailValidity")}}
     </div>
-  {{/-bs/col}}
-  {{#-bs/col xs=6}}
-    <div class="form-group">
-      <label>Submit Button Value</label>
-      {{input type="text" class="form-control" value=campaign.buttonValue placeholder=defaults.button}}
+    <div class="tab-pane" id="email-signup-targets" role="tabpanel">
+      {{campaign/email-signup/targets targets=campaign.targets on-check-validity=(action "setTargetValidity")}}
     </div>
-  {{/-bs/col}}
-{{/-bs/row}}
+    <div class="tab-pane" id="email-signup-hooks" role="tabpanel">
 
-{{#-bs/row}}
-  {{#-bs/col}}
-    <div class="form-group">
-      <label>Description</label>
-      {{textarea class="form-control" value=campaign.description placeholder=defaults.desc}}
     </div>
-  {{/-bs/col}}
-{{/-bs/row}}
-
-{{#-bs/row}}
-  {{#-bs/col}}
-    <div class="form-group">
-      <label>Campaign Name</label>
-      {{input type="text" class="form-control" value=campaign.name}}
+    <div class="tab-pane" id="email-signup-embed-code" role="tabpanel">
+      {{campaign/email-signup/embed-code campaignId=campaign.id isNew=campaign.isNew}}
     </div>
-  {{/-bs/col}}
-{{/-bs/row}}
+  </div>
 
-
-{{#-bs/row}}
-  {{#-bs/col}}
+  <div class="card-footer">
     {{#-bs/button "success" disabled=(eq canSave false) click=(action "save")}}
       {{-ion "checkmark-round"}} Save
     {{/-bs/button}}
-  {{/-bs/col}}
-{{/-bs/row}}
+  </div>
+</div>

@@ -6,7 +6,7 @@
       {{-bs/progress/bar value=100 animated=true}}
     {{/-bs/progress}}
   {{else}}
-    {{-bs/forms/custom-select class="form-control" valuePath="identifier" labelPath="fullName" options=typesSorted value=_selected}}
+    {{-bs/forms/custom-select class="form-control" valuePath="identifier" labelPath="fullName" options=typesSorted value=_selected onChange=(action "change")}}
   {{/if}}
 {{else}}
   {{#-bs/forms/custom-select class="form-control" disabled=true}}

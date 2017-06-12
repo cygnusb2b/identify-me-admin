@@ -9,6 +9,7 @@ export default Model.extend({
   callToAction: attr('string'),
   description: attr('string'),
   buttonValue: attr('string'),
+  previewUrl: attr('string'),
   deploymentId: attr('string'),
   deploymentName: attr('string'),
   service: belongsTo('integration-service', { polymorphic: true }),

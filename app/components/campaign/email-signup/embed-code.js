@@ -9,8 +9,11 @@ export default Component.extend({
     return this.get('campaign.isNew');
   }),
 
-  props: computed('campaign.id', 'campaign.callToAction', 'campaign.description', 'campaign.buttonValue', 'campaign.previewUrl', function() {
-    const keys = ['id', 'callToAction', 'description', 'buttonValue', 'previewUrl'];
+  props: computed(
+    'campaign.id', 'campaign.callToAction', 'campaign.description',
+    'campaign.buttonValue', 'campaign.previewUrl', 'campaign.thankYouTitle', 'campaign.thankYouBody',
+  function() {
+    const keys = ['id', 'callToAction', 'description', 'buttonValue', 'previewUrl', 'thankYouTitle', 'thankYouBody'];
     const props = [];
     const campaign = this.get('campaign');
     keys.forEach(key => {

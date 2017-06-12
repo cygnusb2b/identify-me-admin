@@ -19,10 +19,11 @@
   {{/-bs/col}}
 {{/-bs/row}}
 <hr>
+
 {{#-bs/row}}
   {{#-bs/col sm=6}}
     <div class="form-group">
-      <label>Call to Action</label>
+      <label>Call to Action (Title)</label>
       {{input type="text" class="form-control" value=campaign.callToAction placeholder=defaults.cta}}
     </div>
   {{/-bs/col}}
@@ -33,22 +34,40 @@
     </div>
   {{/-bs/col}}
 {{/-bs/row}}
+
 {{#-bs/row}}
   {{#-bs/col}}
     <div class="form-group">
-      <label>Description</label>
+      <label>Body</label>
       {{textarea class="form-control" value=campaign.description placeholder=defaults.desc}}
     </div>
   {{/-bs/col}}
 {{/-bs/row}}
+
 {{#-bs/row}}
-  {{#-bs/col}}
+  {{#-bs/col sm=6}}
     <div class="form-group">
       <label>Preview URL</label>
       {{input type="text" class="form-control" value=campaign.previewUrl}}
     </div>
   {{/-bs/col}}
+  {{#-bs/col sm=6}}
+    <div class="form-group">
+      <label>Thank You: Title</label>
+      {{input type="text" class="form-control" value=campaign.thankYouTitle placeholder=defaults.thankYouTitle}}
+    </div>
+  {{/-bs/col}}
 {{/-bs/row}}
+
+{{#-bs/row}}
+  {{#-bs/col}}
+    <div class="form-group">
+      <label>Thank You: Body</label>
+      {{textarea class="form-control" value=campaign.thankYouBody placeholder=defaults.thankYouBody}}
+    </div>
+  {{/-bs/col}}
+{{/-bs/row}}
+
 <hr>
 {{#-bs/row}}
   {{#-bs/col sm=6}}

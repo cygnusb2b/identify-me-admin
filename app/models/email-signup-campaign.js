@@ -12,6 +12,8 @@ export default Model.extend({
   previewUrl: attr('string'),
   deploymentId: attr('string'),
   deploymentName: attr('string'),
+  thankYouTitle: attr('string'),
+  thankYouBody: attr('string'),
   service: belongsTo('integration-service', { polymorphic: true }),
   targets: fragmentArray('component-target'),
   cookies: fragmentArray('identification-cookie'),

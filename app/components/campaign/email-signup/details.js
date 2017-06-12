@@ -17,6 +17,8 @@ export default Component.extend({
     button: 'Sign up!',
     service: { id: '', fullName: 'Please Select...' },
     deployment: { identifier: '', fullName: 'Please Select...' },
+    thankYouTitle: 'Thank You!',
+    thankYouBody: 'Your submission has been received.',
   },
 
   isLoaded: {

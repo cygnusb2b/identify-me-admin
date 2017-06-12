@@ -35,7 +35,7 @@
       {{campaign/email-signup/hooks cookies=campaign.cookies on-check-validity=(action "setHookValidity")}}
     </div>
     <div class="tab-pane" id="email-signup-embed-code" role="tabpanel">
-      {{campaign/email-signup/embed-code campaignId=campaign.id isNew=campaign.isNew}}
+      {{campaign/email-signup/embed-code campaign=campaign}}
     </div>
   </div>
 

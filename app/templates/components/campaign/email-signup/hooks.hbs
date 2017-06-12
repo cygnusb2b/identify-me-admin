@@ -1,0 +1,22 @@
+<h5 class="card-text">Cookies</h5>
+<p class="card-text">In addition to the built-in identification cookies, you can add additional cookie names that will be used to signify an identified user.</p>
+
+{{#each cookies as |cookie index|}}
+  {{campaign/email-signup/cookie
+    class="mb-3"
+    cookie=cookie
+    index=index
+    on-destroy=(action "removeCookie")
+    on-change=(action "checkValidity")
+  }}
+{{/each}}
+
+
+<div class="row">
+  <div class="col">
+    {{#-bs/button "success" outline=true size="small" click=(action "addCookie")}}
+      {{-ion "plus-round"}} Add
+    {{/-bs/button}}
+  </div>
+</div>
+<hr>

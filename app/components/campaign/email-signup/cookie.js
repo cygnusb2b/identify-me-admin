@@ -4,7 +4,7 @@ const { Component } = Ember;
 
 export default Component.extend({
   index: null,
-  target: null,
+  cookie: null,
 
   actions: {
     change() {

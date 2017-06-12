@@ -8,7 +8,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#email-signup-targets" data-toggle="pill" role="tab">
-          Targets
+          Placements
         </a>
       </li>
       <li class="nav-item">
@@ -18,7 +18,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#email-signup-embed-code" data-toggle="pill" role="tab">
-          Embed Code
+          Embed
         </a>
       </li>
     </ul>
@@ -32,7 +32,7 @@
       {{campaign/email-signup/targets targets=campaign.targets on-check-validity=(action "setTargetValidity")}}
     </div>
     <div class="tab-pane" id="email-signup-hooks" role="tabpanel">
-
+      {{campaign/email-signup/hooks cookies=campaign.cookies on-check-validity=(action "setHookValidity")}}
     </div>
     <div class="tab-pane" id="email-signup-embed-code" role="tabpanel">
       {{campaign/email-signup/embed-code campaignId=campaign.id isNew=campaign.isNew}}

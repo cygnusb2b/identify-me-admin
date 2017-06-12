@@ -1,5 +1,5 @@
 {{#-bs/row}}
-  {{#-bs/col sm=6}}
+  {{#-bs/col lg=6}}
     {{campaign/service-select
       services=services
       service=campaign.service
@@ -7,7 +7,7 @@
       loading=isLoading.services
     }}
   {{/-bs/col}}
-  {{#-bs/col sm=6}}
+  {{#-bs/col lg=6}}
     {{campaign/deployment-select
       isServiceSelected=hasService
       types=deploymentTypes

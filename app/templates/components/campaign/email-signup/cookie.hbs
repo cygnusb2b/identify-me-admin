@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="input-group col">
+    <span class="input-group-addon">
+      <small>
+        Name
+      </small>
+    </span>
+    {{input type="text" class="form-control form-control-sm" value=cookie.name key-up=(action "change")}}
+    <span class="input-group-btn">
+      {{#-bs/button "warning" class="pl-2 pr-2" outline=true size="small" click=(action "destroy")}}
+        {{-ion "close-circled" class="ml-1 mr-1"}}
+      {{/-bs/button}}
+    </span>
+  </div>
+</div>
+

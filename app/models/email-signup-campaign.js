@@ -1,7 +1,7 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
-import { fragmentArray } from 'ember-data-model-fragments/attributes';
+import { fragmentArray, array } from 'ember-data-model-fragments/attributes';
 
 export default Model.extend({
   name: attr('string'),
@@ -13,4 +13,5 @@ export default Model.extend({
   deploymentName: attr('string'),
   service: belongsTo('integration-service', { polymorphic: true }),
   targets: fragmentArray('component-target'),
+  cookies: fragmentArray('identification-cookie'),
 });

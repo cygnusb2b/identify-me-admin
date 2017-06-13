@@ -26,7 +26,7 @@
 
   <div class="tab-content card-block">
     <div class="tab-pane active" id="email-signup-details" role="tabpanel">
-      {{campaign/email-signup/details campaign=campaign on-check-validity=(action "setDetailValidity")}}
+      {{campaign/gated-content/details campaign=campaign on-check-validity=(action "setDetailValidity")}}
     </div>
     <div class="tab-pane" id="email-signup-targets" role="tabpanel">
       {{campaign/-targets targets=campaign.targets on-check-validity=(action "setTargetValidity")}}
@@ -39,7 +39,7 @@
         identifier=campaign.id
         isNew=campaign.isNew
         props=campaign.props
-        type="campaign-email-signup"
+        type="campaign-gated-content"
       }}
     </div>
   </div>

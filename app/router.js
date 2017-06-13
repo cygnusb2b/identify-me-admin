@@ -18,6 +18,10 @@ Router.map(function() {
       this.route('create');
       this.route('edit', { path: '/edit/:id' });
     });
+    this.route('gated-content', function() {
+      this.route('create');
+      this.route('edit', { path: '/edit/:id' });
+    });
   });
 });
 

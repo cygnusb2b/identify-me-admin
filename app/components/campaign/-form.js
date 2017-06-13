@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-const { Component, inject: { service }, computed, set, get } = Ember;
+const { Component, computed, set, get } = Ember;
 
 export default Component.extend({
   classNames: ['card'],

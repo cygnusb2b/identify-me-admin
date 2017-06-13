@@ -4,6 +4,6 @@ const { Route } = Ember;
 
 export default Route.extend({
   model() {
-    return this.store.createRecord('email-signup-campaign');
+    return this.store.createRecord('campaign-email-signup');
   },
 });

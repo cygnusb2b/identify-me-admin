@@ -4,6 +4,6 @@ const { Route } = Ember;
 
 export default Route.extend({
   model(params) {
-    return this.store.find('email-signup-campaign', params.id);
+    return this.store.find('campaign-email-signup', params.id);
   },
 });

@@ -24,13 +24,13 @@
   {{#-bs/col sm=6}}
     <div class="form-group">
       <label>Call to Action (Title)</label>
-      {{input type="text" class="form-control" value=campaign.callToAction placeholder=defaults.cta}}
+      {{input type="text" class="form-control" value=campaign.props.callToAction placeholder=defaults.callToAction}}
     </div>
   {{/-bs/col}}
   {{#-bs/col sm=6}}
     <div class="form-group">
       <label>Submit Button Value</label>
-      {{input type="text" class="form-control" value=campaign.buttonValue placeholder=defaults.button}}
+      {{input type="text" class="form-control" value=campaign.props.buttonValue placeholder=defaults.buttonValue}}
     </div>
   {{/-bs/col}}
 {{/-bs/row}}
@@ -39,7 +39,7 @@
   {{#-bs/col}}
     <div class="form-group">
       <label>Body</label>
-      {{textarea class="form-control" value=campaign.description placeholder=defaults.desc}}
+      {{textarea class="form-control" value=campaign.props.description placeholder=defaults.description}}
     </div>
   {{/-bs/col}}
 {{/-bs/row}}
@@ -48,13 +48,13 @@
   {{#-bs/col sm=6}}
     <div class="form-group">
       <label>Preview URL</label>
-      {{input type="text" class="form-control" value=campaign.previewUrl}}
+      {{input type="text" class="form-control" value=campaign.props.previewUrl}}
     </div>
   {{/-bs/col}}
   {{#-bs/col sm=6}}
     <div class="form-group">
       <label>Thank You: Title</label>
-      {{input type="text" class="form-control" value=campaign.thankYouTitle placeholder=defaults.thankYouTitle}}
+      {{input type="text" class="form-control" value=campaign.props.thankYouTitle placeholder=defaults.thankYouTitle}}
     </div>
   {{/-bs/col}}
 {{/-bs/row}}
@@ -63,7 +63,7 @@
   {{#-bs/col}}
     <div class="form-group">
       <label>Thank You: Body</label>
-      {{textarea class="form-control" value=campaign.thankYouBody placeholder=defaults.thankYouBody}}
+      {{textarea class="form-control" value=campaign.props.thankYouBody placeholder=defaults.thankYouBody}}
     </div>
   {{/-bs/col}}
 {{/-bs/row}}

@@ -12,9 +12,9 @@ export default Component.extend({
   deploymentTypes: [],
 
   defaults: {
-    cta: 'Stay up to date!',
-    desc: 'Subscribe to our newsletter to receive the latest industry news.',
-    button: 'Sign up!',
+    callToAction: 'Stay up to date!',
+    description: 'Subscribe to our newsletter to receive the latest industry news.',
+    buttonValue: 'Sign up!',
     service: { id: '', fullName: 'Please Select...' },
     deployment: { identifier: '', fullName: 'Please Select...' },
     thankYouTitle: 'Thank You!',
@@ -45,6 +45,9 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
+    if (!this.get('campaign.props')) {
+      this.set('campaign.props', {});
+    }
     this.send('checkValidity');
     this.send('loadServices');
   },

@@ -34,9 +34,13 @@ export default Component.extend({
           if (isNew) {
             this.get('routing').transitionTo('campaign.email-signup.index');
           }
+          // Workaround until embed-ones are fixed on the backend.
+          this.get('campaign').reload().finally(() => loading.hide());
         })
-        .catch((json) => this.get('errorProcessor').notify(json.errors || []))
-        .finally(() => loading.hide())
+        .catch((json) => {
+          this.get('errorProcessor').notify(json.errors || []);
+          loading.hide();
+        })
       ;
     },
     setDetailValidity(isValid) {

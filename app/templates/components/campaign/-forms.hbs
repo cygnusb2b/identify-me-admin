@@ -1,0 +1,25 @@
+<p class="card-text">
+  Specify the forms this component should display. Multiple forms will be displayed "at equal random."
+</p>
+<div class="row">
+  <div class="col">
+    {{#each activeForms as |form index|}}
+      {{campaign/-form
+        index=index
+        class="mb-4"
+        serviceFields=serviceFields
+        serviceFieldsLoaded=serviceFieldsLoaded
+        form=form
+        on-destroy=(action "remove")
+        on-change=(action "checkValidity")
+      }}
+    {{/each}}
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    {{#-bs/button "success" outline=true size="small" click=(action "add")}}
+      {{-ion "plus-round"}} Add
+    {{/-bs/button}}
+  </div>
+</div>

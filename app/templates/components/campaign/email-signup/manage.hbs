@@ -7,6 +7,11 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#email-signup-forms" data-toggle="pill" role="tab">
+          Forms
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#email-signup-targets" data-toggle="pill" role="tab">
           Placements
         </a>
@@ -27,6 +32,9 @@
   <div class="tab-content card-block">
     <div class="tab-pane active" id="email-signup-details" role="tabpanel">
       {{campaign/email-signup/details campaign=campaign on-check-validity=(action "setDetailValidity")}}
+    </div>
+    <div class="tab-pane" id="email-signup-forms" role="tabpanel">
+      {{campaign/-forms forms=campaign.forms serviceId=campaign.service.id on-check-validity=(action "setFormValidity")}}
     </div>
     <div class="tab-pane" id="email-signup-targets" role="tabpanel">
       {{campaign/-targets targets=campaign.targets on-check-validity=(action "setTargetValidity")}}

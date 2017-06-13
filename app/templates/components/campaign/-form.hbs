@@ -1,0 +1,98 @@
+<div class="card-header">
+  {{ form.name }}
+</div>
+<div class="card-block">
+  {{#-bs/row}}
+    {{#-bs/col}}
+      <div class="form-group">
+        <label>Form Name</label>
+
+
+        <div class="input-group">
+          {{input type="text" class="form-control" value=form.name}}
+          <span class="input-group-btn">
+            {{#-bs/button "danger" class="float-right" size="small" outline=true click=(action "deactivate")}}
+              {{-ion 'android-close'}} Deactivate
+            {{/-bs/button}}
+          </span>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="form-group col-6">
+          <label>Add Built-In Field</label>
+          {{-bs/forms/custom-select
+            class="form-control"
+            options=builtInSelectable
+            valuePath="key"
+            onChange=(action "addBuiltInField")
+            value=controlValue
+          }}
+        </div>
+        <div class="form-group col-6">
+          <label>Add Service Field</label>
+          {{#if serviceFieldsLoaded}}
+            {{-bs/forms/custom-select
+              class="form-control"
+              options=serviceSelectable
+              valuePath="key"
+              onChange=(action "addServiceField")
+              value=controlValue
+            }}
+          {{else}}
+            <small class="text-muted">Loading, please wait...</small>
+            {{#-bs/progress}}
+              {{-bs/progress/bar value=100 animated=true}}
+            {{/-bs/progress}}
+          {{/if}}
+        </div>
+      </div>
+      <hr>
+      <div class="form-group">
+        <label>Selected Fields</label>
+        {{#if selected.length}}
+          <table class="table table-responsive table-hover">
+            <thead>
+              <tr>
+                <th>Key</th><th>Label</th><th>Required?</th><th>Options</th><th>&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each selected as |field index|}}
+                <tr>
+                  <td>{{ field.key }}</td>
+                  <td>{{input type="text" value=field.label class="form-control form-control-sm" key-up=(action "change")}}</td>
+                  <td>
+                    <label class="custom-control custom-checkbox">
+                      {{input
+                        type="checkbox"
+                        checked=(readonly field.required)
+                        class="custom-control-input"
+                        change=(action "toggleRequired" index)
+                      }}
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description"></span>
+                    </label>
+                  </td>
+                  <td>
+                    {{#if field.options.length}}
+                      {{-bs/forms/custom-select options=field.options}}
+                    {{/if}}
+                  </td>
+                  <td>
+                    {{#-bs/button "warning" outline=true size="small" click=(action "removeField" index)}}
+                      {{-ion "close-circled"}}
+                    {{/-bs/button}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          <small class="form-text text-muted">No fields currently selected.</small>
+        {{/if}}
+      </div>
+
+    {{/-bs/col}}
+  {{/-bs/row}}
+</div>

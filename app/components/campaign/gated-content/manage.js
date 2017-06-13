@@ -14,12 +14,15 @@ export default Component.extend({
     details: false,
     targets: false,
     hooks: false,
+    forms: false,
   },
 
-  canSave: computed('validity.details', 'validity.targets', 'validity.hooks', function() {
+  canSave: computed('validity.details', 'validity.targets', 'validity.hooks', 'validity.forms', function() {
     return this.get('validity.details')
       && this.get('validity.targets')
-      && this.get('validity.hooks') ? true : false
+      && this.get('validity.hooks')
+      && this.get('validity.forms')
+      ? true : false
     ;
   }),
 
@@ -51,6 +54,9 @@ export default Component.extend({
     },
     setHookValidity(isValid) {
       this.set('validity.hooks', isValid);
+    },
+    setFormValidity(isValid) {
+      this.set('validity.forms', isValid);
     },
   },
 });

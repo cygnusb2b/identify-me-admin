@@ -10,4 +10,5 @@ export default Model.extend(SoftDeleteable, {
   service: belongsTo('integration-service', { polymorphic: true }),
   targets: fragmentArray('component-target'),
   cookies: fragmentArray('identification-cookie'),
+  forms: fragmentArray('campaign-form'),
 });

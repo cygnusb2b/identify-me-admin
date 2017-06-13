@@ -13,7 +13,6 @@ export default Component.extend({
   defaults: {
     title: 'This content is exclusive to subscribers.',
     description: 'To continue reading this content, please complete the following information.',
-    fullRegisterDescription: 'To continue reading this content, please click here to register.',
     buttonValue: 'Continue',
     registerUrl: '',
     service: { id: '', fullName: 'Please Select...' },

@@ -32,7 +32,7 @@
     "ember-cli-sri": "2.1.1",
     "ember-cli-uglify": "1.2.0",
     "ember-data": "2.13.1",
-    "ember-data-model-fragments": "2.11.3",
+    "ember-data-model-fragments": "2.11.4",
     "ember-export-application-global": "2.0.0",
     "ember-load-initializers": "1.0.0",
     "ember-notify": "5.2.1",

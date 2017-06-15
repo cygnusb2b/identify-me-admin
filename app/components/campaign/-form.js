@@ -3,27 +3,16 @@ import Ember from 'ember';
 const { Component, computed, set, get } = Ember;
 
 export default Component.extend({
+
   classNames: ['card'],
 
   form: null,
 
-  serviceFieldsLoaded: false,
   serviceFields: null,
+  builtInFields: null,
 
-  builtInFields: [
-    { key: '', label: 'Select field to add...'},
-    { key: 'email', label: 'Email Address', fieldType: 'email', required: true },
-    { key: 'firstName', label: 'First Name', fieldType: 'text' },
-    { key: 'lastName', label: 'Last Name', fieldType: 'text' },
-    { key: 'companyName', label: 'Company Name', fieldType: 'text' },
-    { key: 'title', label: 'Job Title', fieldType: 'text' },
-    { key: 'country', label: 'Country', fieldType: 'select', options: [
-      { value: '', label: 'Please select...'},
-      { value: 'USA', label: 'United States' },
-      { value: 'CAN', label: 'Canada' },
-      { value: 'OTHR', label: 'Other' },
-    ]},
-  ],
+  serviceFieldsLoaded: false,
+  builtInFieldsLoaded: false,
 
   controlValue: '',
 

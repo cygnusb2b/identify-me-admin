@@ -7,8 +7,10 @@
       {{campaign/-form
         index=index
         class="mb-4"
-        serviceFields=serviceFields
-        serviceFieldsLoaded=serviceFieldsLoaded
+        serviceFields=fields.service
+        serviceFieldsLoaded=loaded.service
+        builtInFields=fields.builtIn
+        builtInFieldsLoaded=loaded.builtIn
         form=form
         on-destroy=(action "remove")
         on-change=(action "checkValidity")

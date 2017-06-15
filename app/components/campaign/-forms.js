@@ -5,11 +5,20 @@ const { Component, computed, inject: { service } } = Ember;
 export default Component.extend({
   store: service(),
   demographicLoader: service(),
+  fieldLoader: service(),
 
-  serviceFields: null,
   serviceId: null,
-  serviceFieldsLoaded: false,
   forms: null,
+
+  fields: {
+    builtIn: null,
+    service: null,
+  },
+
+  loaded: {
+    builtIn: false,
+    service: false,
+  },
 
   activeForms: computed.filterBy('forms', 'active', true),
 
@@ -30,9 +39,20 @@ export default Component.extend({
     if (!this.get('forms')) {
       this.set('forms', []);
     }
-    this.set('serviceFields', []);
+    this.set('fields.builtIn', []);
+    this.set('fields.service', []);
     this.send('checkValidity');
     this.send('loadFields');
+  },
+
+  loadFields(type, fields) {
+    fields.forEach(field => this.pushField(type, field));
+    this.set(`loaded.${type}`, true)
+  },
+
+  pushField(type, field) {
+    const key = `fields.${type}`;
+    this.get(key).pushObject(field);
   },
 
   actions: {
@@ -41,15 +61,19 @@ export default Component.extend({
     },
 
     loadFields() {
+      const placeholder = { key: '', label: 'Select field to add...'};
+
+      this.pushField('builtIn', placeholder);
+      this.get('fieldLoader').retrieve()
+        .then((fields) => this.loadFields('builtIn', fields))
+      ;
+
       if (!this.get('serviceId')) {
         return;
       }
-      this.get('serviceFields').pushObject({ key: '', label: 'Select field to add...'});
+      this.pushField('service', placeholder)
       this.get('demographicLoader').retrieve(this.get('serviceId'))
-        .then((fields) => {
-          fields.forEach((field) => this.get('serviceFields').pushObject(field));
-          this.set('serviceFieldsLoaded', true);
-        })
+        .then((fields) => this.loadFields('service', fields))
       ;
     },
     add() {

@@ -14,6 +14,8 @@ module.exports = function(defaults) {
   app.import(path.join(app.bowerDirectory, 'bootstrap/dist/js/bootstrap.min.js'));
   app.import(path.join(app.bowerDirectory, 'bootstrap/dist/css/bootstrap.min.css.map'), { destDir : 'assets' });
 
+  app.import(path.join(app.bowerDirectory, 'highcharts/highcharts.js'));
+
   var icons = new Funnel(path.join(app.bowerDirectory, 'Ionicons/fonts'), {
     srcDir: '/',
     include: ['**/*.svg', '**/*.eot', '**/*.ttf', '**/*.woff'],

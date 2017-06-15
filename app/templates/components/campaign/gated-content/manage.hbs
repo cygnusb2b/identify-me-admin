@@ -26,6 +26,11 @@
           Embed
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#gated-content-analytics" data-toggle="pill" role="tab">
+          Analytics
+        </a>
+      </li>
     </ul>
   </div>
 
@@ -49,6 +54,11 @@
         props=campaign.props
         type="campaign-gated-content"
       }}
+    </div>
+    <div class="tab-pane" id="gated-content-analytics" role="tabpanel">
+      {{#each campaign.forms as |form|}}
+        {{campaign/-analytics form=form campaignId=campaign.id}}
+      {{/each}}
     </div>
   </div>
 

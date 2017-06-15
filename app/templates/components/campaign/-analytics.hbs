@@ -1,0 +1,64 @@
+<div class="card-header">
+  {{form.name}}
+</div>
+
+<div class="card-block">
+  {{#if loading}}
+    <small class="text-muted">Loading data, please wait...</small>
+    {{#-bs/progress}}
+      {{-bs/progress/bar value=100 animated=true}}
+    {{/-bs/progress}}
+  {{else}}
+    <div class="card-deck">
+      <div class="card mb-3">
+        <div class="card-block">
+          <p class="mb-0"><span class="display-4">{{ report.actions.render.count }}</span><br>Inserted</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-block">
+          <p class="mb-0"><span class="display-4">{{ report.actions.view.count }}</span><br>Viewed</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-block">
+          <p class="mb-0"><span class="display-4">{{ report.actions.focus.count }}</span><br>Focused</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-block">
+          <p class="mb-0"><span class="display-4">{{ report.actions.submit.count }}</span><br>Submitted</p>
+        </div>
+      </div>
+      {{!-- <div class="card mb-3">
+        <div class="card-block">
+          <p class="mb-0"><span class="display-4">{{ report.conversion }}</span> C/R</p>
+        </div>
+      </div> --}}
+    </div>
+    {{#if report.submissions.length}}
+      <div class="table-responsive">
+        <table class="table table-bordered table-sm mb-0">
+          <thead>
+            <tr>
+              <th>Date</th>
+              {{#each report.labels as |label|}}
+                <th>{{ label }}</th>
+              {{/each}}
+            </tr>
+          </thead>
+          <tbody>
+            {{#each report.submissions as |submission|}}
+              <tr>
+                <td>{{ submission.date }}</td>
+                {{#each report.labels as |label|}}
+                  <td>{{ get submission.values label }}</td>
+                {{/each}}
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    {{/if}}
+  {{/if}}
+</div>

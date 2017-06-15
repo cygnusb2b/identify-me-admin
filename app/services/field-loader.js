@@ -263,7 +263,7 @@ export default Service.extend({
   ],
 
   retrieve() {
-    const fields = this.get('fields');
+    const fields = this.get('fields').slice();
     fields.pushObject({ key: 'country', label: 'Country', fieldType: 'select', options: this.get('countryOptions') });
     return RSVP.resolve(fields);
   },

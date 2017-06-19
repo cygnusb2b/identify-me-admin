@@ -57,7 +57,7 @@
     </div>
     <div class="tab-pane" id="gated-content-analytics" role="tabpanel">
       {{#each campaign.forms as |form|}}
-        {{campaign/-analytics form=form campaignId=campaign.id}}
+        {{campaign/-analytics form=form campaignId=campaign.id isNew=campaign.isNew}}
       {{/each}}
     </div>
   </div>

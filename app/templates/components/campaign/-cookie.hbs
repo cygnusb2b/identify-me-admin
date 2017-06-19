@@ -1,16 +1,51 @@
 <div class="row">
-  <div class="input-group col">
-    <span class="input-group-addon">
-      <small>
-        Name
-      </small>
-    </span>
-    {{input type="text" class="form-control form-control-sm" value=cookie.name key-up=(action "change")}}
-    <span class="input-group-btn">
-      {{#-bs/button "warning" class="pl-2 pr-2" outline=true size="small" click=(action "destroy")}}
-        {{-ion "close-circled" class="ml-1 mr-1"}}
-      {{/-bs/button}}
-    </span>
-  </div>
+  {{#if canSet}}
+    <div class="input-group col-lg-4 pr-lg-0 mb-1 mb-lg-0">
+      <span class="input-group-addon">
+        <small>
+          Name
+        </small>
+      </span>
+      {{input type="text" class="form-control form-control-sm" value=cookie.name
+      key-up=(action "change")}}
+    </div>
+    <div class="input-group col-lg-4 px-lg-0 mb-1 mb-lg-0">
+      <span class="input-group-addon">
+        <small>
+          Value
+        </small>
+      </span>
+      {{input type="text" class="form-control form-control-sm" value=cookie.value placeholder="%%id%%"
+      key-up=(action "change")}}
+    </div>
+    <div class="input-group col-lg-4 pl-lg-0 mb-1 mb-lg-0">
+      <span class="input-group-addon">
+        <small>
+          Expires
+        </small>
+      </span>
+      {{input type="text" class="form-control form-control-sm" value=cookie.expires placeholder="63,072,000"
+      key-up=(action "change")}}
+      <span class="input-group-btn">
+        {{#-bs/button "warning" class="pl-2 pr-2" outline=true size="small" click=(action "destroy")}}
+          {{-ion "close-circled" class="ml-1 mr-1"}}
+        {{/-bs/button}}
+      </span>
+    </div>
+  {{else}}
+    <div class="input-group col">
+      <span class="input-group-addon">
+        <small>
+          Name
+        </small>
+      </span>
+      {{input type="text" class="form-control form-control-sm" value=cookie.name key-up=(action "change")}}
+      <span class="input-group-btn">
+        {{#-bs/button "warning" class="pl-2 pr-2" outline=true size="small" click=(action "destroy")}}
+          {{-ion "close-circled" class="ml-1 mr-1"}}
+        {{/-bs/button}}
+      </span>
+    </div>
+  {{/if}}
 </div>
 

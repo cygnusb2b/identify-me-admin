@@ -4,6 +4,7 @@ const { Component, computed, get } = Ember;
 
 export default Component.extend({
   cookies: null,
+  setCookies: null,
 
   isValid: computed('hasCookies', 'cookies.@each.name', function() {
     if (!this.get('hasCookies')) {
@@ -34,6 +35,14 @@ export default Component.extend({
     },
     removeCookie(index) {
       this.get('cookies').removeAt(index);
+      this.send('checkValidity');
+    },
+    addSetCookie() {
+      this.get('setCookies').pushObject({});
+      this.send('checkValidity');
+    },
+    removeSetCookie(index) {
+      this.get('setCookies').removeAt(index);
       this.send('checkValidity');
     },
   },

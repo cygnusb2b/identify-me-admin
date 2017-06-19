@@ -20,3 +20,27 @@
   </div>
 </div>
 <hr>
+
+<h5 class="card-text">Set Cookies</h5>
+<p class="card-text">When a form is submited, add the following cookies.</p>
+
+{{#each setCookies as |cookie index|}}
+  {{campaign/-cookie
+    canSet=true
+    class="mb-3"
+    cookie=cookie
+    index=index
+    on-destroy=(action "removeSetCookie")
+    on-change=(action "checkValidity")
+  }}
+{{/each}}
+
+
+<div class="row">
+  <div class="col">
+    {{#-bs/button "success" outline=true size="small" click=(action "addSetCookie")}}
+      {{-ion "plus-round"}} Add
+    {{/-bs/button}}
+  </div>
+</div>
+<hr>

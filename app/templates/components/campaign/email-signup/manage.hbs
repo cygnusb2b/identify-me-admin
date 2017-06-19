@@ -45,7 +45,7 @@
       {{campaign/-targets targets=campaign.targets on-check-validity=(action "setTargetValidity")}}
     </div>
     <div class="tab-pane" id="email-signup-hooks" role="tabpanel">
-      {{campaign/-hooks cookies=campaign.cookies on-check-validity=(action "setHookValidity")}}
+      {{campaign/-hooks cookies=campaign.cookies setCookies=campaign.setCookies on-check-validity=(action "setHookValidity")}}
     </div>
     <div class="tab-pane" id="email-signup-embed-code" role="tabpanel">
       {{campaign/embed-code

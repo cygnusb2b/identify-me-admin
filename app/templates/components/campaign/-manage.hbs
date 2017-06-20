@@ -2,37 +2,37 @@
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" href="#email-signup-details" data-toggle="pill" role="tab">
+        <a class="nav-link active" href="#campaign-details" data-toggle="pill" role="tab">
            <span class="hidden-sm-down">Details</span>
            {{-ion "clipboard" class="hidden-md-up"}}
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#email-signup-forms" data-toggle="pill" role="tab">
+        <a class="nav-link" href="#campaign-forms" data-toggle="pill" role="tab">
            <span class="hidden-sm-down">Forms</span>
            {{-ion "android-list" class="hidden-md-up"}}
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#email-signup-targets" data-toggle="pill" role="tab">
+        <a class="nav-link" href="#campaign-targets" data-toggle="pill" role="tab">
            <span class="hidden-sm-down">Placements</span>
            {{-ion "android-locate" class="hidden-md-up"}}
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#email-signup-hooks" data-toggle="pill" role="tab">
+        <a class="nav-link" href="#campaign-hooks" data-toggle="pill" role="tab">
            <span class="hidden-sm-down">Hooks</span>
            {{-ion "android-download" class="hidden-md-up"}}
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#email-signup-embed-code" data-toggle="pill" role="tab">
+        <a class="nav-link" href="#campaign-embed-code" data-toggle="pill" role="tab">
            <span class="hidden-sm-down">Embed</span>
            {{-ion "android-share-alt" class="hidden-md-up"}}
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#email-signup-analytics" data-toggle="pill" role="tab">
+        <a class="nav-link" href="#campaign-analytics" data-toggle="pill" role="tab">
            <span class="hidden-sm-down">Analytics</span>
            {{-ion "pie-graph" class="hidden-md-up"}}
         </a>
@@ -41,19 +41,19 @@
   </div>
 
   <div class="tab-content card-block">
-    <div class="tab-pane active" id="email-signup-details" role="tabpanel">
-      {{campaign/email-signup/details campaign=campaign on-check-validity=(action "setDetailValidity")}}
+    <div class="tab-pane active" id="campaign-details" role="tabpanel">
+      {{component detailsComponent campaign=campaign on-check-validity=(action "setDetailValidity")}}
     </div>
-    <div class="tab-pane" id="email-signup-forms" role="tabpanel">
+    <div class="tab-pane" id="campaign-forms" role="tabpanel">
       {{campaign/-forms forms=campaign.forms serviceId=campaign.service.id on-check-validity=(action "setFormValidity")}}
     </div>
-    <div class="tab-pane" id="email-signup-targets" role="tabpanel">
+    <div class="tab-pane" id="campaign-targets" role="tabpanel">
       {{campaign/-targets targets=campaign.targets on-check-validity=(action "setTargetValidity")}}
     </div>
-    <div class="tab-pane" id="email-signup-hooks" role="tabpanel">
+    <div class="tab-pane" id="campaign-hooks" role="tabpanel">
       {{campaign/-hooks cookies=campaign.cookies setCookies=campaign.setCookies on-check-validity=(action "setHookValidity")}}
     </div>
-    <div class="tab-pane" id="email-signup-embed-code" role="tabpanel">
+    <div class="tab-pane" id="campaign-embed-code" role="tabpanel">
       {{campaign/embed-code
         identifier=campaign.id
         isNew=campaign.isNew
@@ -61,7 +61,7 @@
         type="campaign-email-signup"
       }}
     </div>
-    <div class="tab-pane" id="email-signup-analytics" role="tabpanel">
+    <div class="tab-pane" id="campaign-analytics" role="tabpanel">
       {{#each campaign.forms as |form|}}
         {{campaign/-analytics form=form campaignId=campaign.id isNew=campaign.isNew}}
       {{/each}}

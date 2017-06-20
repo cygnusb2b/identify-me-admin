@@ -8,6 +8,7 @@ export default Component.extend({
   errorProcessor: service(),
   routing: service('-routing'),
 
+  routeName: null,
   campaign: null,
 
   validity: {
@@ -16,6 +17,11 @@ export default Component.extend({
     hooks: false,
     forms: false,
   },
+
+  detailsComponent: computed('campaign.typeKey', function() {
+    return `campaign/${this.get('campaign.typeKey')}/details`;
+    // console.info('detailsComponent', this.get('campaign.typeKey'));
+  }),
 
   canSave: computed('validity.details', 'validity.targets', 'validity.hooks', 'validity.forms', function() {
     return this.get('validity.details')
@@ -29,12 +35,13 @@ export default Component.extend({
     save() {
       const loading = this.get('loading');
       const isNew = this.get('campaign.isNew');
+      const routeName = this.get('routeName');
       loading.show();
 
       this.get('campaign').save()
         .then(() => {
-          if (isNew) {
-            this.get('routing').transitionTo('campaign.email-signup.index');
+          if (isNew && routeName) {
+            this.get('routing').transitionTo(routeName);
           }
           // Workaround until embed-ones are fixed on the backend.
           this.get('campaign').reload().finally(() => loading.hide());

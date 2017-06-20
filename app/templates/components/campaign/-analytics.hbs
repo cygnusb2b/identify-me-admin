@@ -9,34 +9,63 @@
       {{-bs/progress/bar value=100 animated=true}}
     {{/-bs/progress}}
   {{else}}
-    <div class="card-deck">
-      <div class="card mb-3">
-        <div class="card-block">
-          <p class="mb-0"><span class="display-4">{{ format-number report.actions.render.count format="0,0" }}</span><br>Loaded</p>
-        </div>
-      </div>
-      <div class="card mb-3">
-        <div class="card-block">
-          <p class="mb-0"><span class="display-4">{{ format-number report.actions.view.count format="0,0" }}</span><br>Viewed</p>
-        </div>
-      </div>
-      <div class="card mb-3">
-        <div class="card-block">
-          <p class="mb-0"><span class="display-4">{{ format-number report.actions.focus.count format="0,0" }}</span><br>Focused</p>
-        </div>
-      </div>
-      <div class="card mb-3">
-        <div class="card-block">
-          <p class="mb-0"><span class="display-4">{{ format-number report.actions.submit.count format="0,0" }}</span><br>Submitted</p>
+
+
+    <div class="row">
+      <div class="col">
+        <div class="card-deck">
+          <div class="card mb-4">
+            <div class="card-block">
+              <p class="mb-0"><span class="display-4">{{ format-number report.actions.render.count format="0,0" }}</span><br>Loaded</p>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-block">
+              <p class="mb-0"><span class="display-4">{{ format-number report.actions.view.count format="0,0" }}</span><br>Viewed</p>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-block">
+              <p class="mb-0"><span class="display-4">{{ format-number report.actions.focus.count format="0,0" }}</span><br>Focused</p>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="card-block">
+              <p class="mb-0"><span class="display-4">{{ format-number report.actions.submit.count format="0,0" }}</span><br>Submitted</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    {{#if report.submissions.length}}
-      {{campaign/-analytics/user-table
-        labels=report.labels
-        submissions=report.submissions
-        class="table-responsive table-striped table-sm mb-0"
-      }}
-    {{/if}}
+
+    <div class="row">
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            {{campaign/-analytics/funnel-chart data=report.actions}}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            {{campaign/-analytics/success-chart data=report.actions}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        {{#if report.submissions.length}}
+          {{campaign/-analytics/user-table
+            labels=report.labels
+            submissions=report.submissions
+            class="table-responsive table-striped table-sm mb-0"
+          }}
+        {{/if}}
+      </div>
+    </div>
   {{/if}}
 </div>

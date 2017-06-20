@@ -15,6 +15,10 @@ body {
     left: inherit;
 }
 
+.highcharts-credits {
+    display: none !important;
+}
+
 .loading-overlay {
     position: fixed;
     top: 0;

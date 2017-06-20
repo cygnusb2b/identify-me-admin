@@ -48,9 +48,9 @@ export default Component.extend({
     addServiceField(key) {
       this.addField(key, 'serviceFields');
     },
-    deactivate() {
-      this.set('form.active', false);
-      if (this.get('form.isNew')) {
+    toggleActive() {
+      this.set('form.active', !this.get('form.active'));
+      if (this.get('form.isNew') && !this.get('form.active')) {
         this.sendAction('on-destroy', this.get('form'));
       }
       this.send('change');

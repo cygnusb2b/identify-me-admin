@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 const { Component, $ } = Ember;
 
@@ -14,10 +15,24 @@ export default Component.extend({
   didInsertElement() {
     const title = this.get('title');
     const table = this.$().DataTable({
-      aaSorting: [],
+      aaSorting: [[0, 'desc']],
       buttons: [
-        { extend: 'excelHtml5', title: title },
-        { extend: 'csvHtml5', title: title },
+        { extend: 'excelHtml5', title: title, exportOptions: { orthogonal: 'export' } },
+        { extend: 'csvHtml5', title: title, exportOptions: { orthogonal: 'export' } },
+      ],
+      columnDefs: [
+        {
+          targets: 0,
+          render: function(data, type) {
+            if (type === 'display' && data) {
+              return moment(data).fromNow();
+            } else if (type === 'export' && data) {
+              return moment(data).format('MMMM Do, YYYY h:mma Z');
+            } else {
+              return data;
+            }
+          }
+        },
       ],
     });
 

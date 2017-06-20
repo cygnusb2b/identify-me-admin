@@ -1,0 +1,18 @@
+<thead>
+  <tr>
+    <th>Date</th>
+    {{#each labels as |label|}}
+      <th>{{ label }}</th>
+    {{/each}}
+  </tr>
+</thead>
+<tbody>
+  {{#each submissions as |submission|}}
+    <tr>
+      <td>{{ submission.date }}</td>
+      {{#each labels as |label|}}
+        <td>{{ get submission.values label }}</td>
+      {{/each}}
+    </tr>
+  {{/each}}
+</tbody>

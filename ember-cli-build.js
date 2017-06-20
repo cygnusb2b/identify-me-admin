@@ -14,6 +14,18 @@ module.exports = function(defaults) {
   app.import(path.join(app.bowerDirectory, 'bootstrap/dist/js/bootstrap.min.js'));
   app.import(path.join(app.bowerDirectory, 'bootstrap/dist/css/bootstrap.min.css.map'), { destDir : 'assets' });
 
+  app.import(path.join(app.bowerDirectory, 'datatables.net/js/jquery.dataTables.min.js'));
+
+  app.import(path.join(app.bowerDirectory, 'datatables.net-bs4/js/dataTables.bootstrap4.min.js'));
+  app.import(path.join(app.bowerDirectory, 'datatables.net-bs4/css/dataTables.bootstrap4.min.css'));
+
+  // For whatever reason, this library is required for the Excel export via the DataTables HTML 5 buttons!
+  app.import(path.join(app.bowerDirectory, 'jszip/dist/jszip.min.js'));
+
+  app.import(path.join(app.bowerDirectory, 'datatables-buttons/js/dataTables.buttons.js'));
+  app.import(path.join(app.bowerDirectory, 'datatables-buttons/js/buttons.html5.js'));
+  app.import(path.join(app.bowerDirectory, 'datatables-buttons/js/buttons.bootstrap4.js'));
+
   app.import(path.join(app.bowerDirectory, 'highcharts/highcharts.js'));
 
   var icons = new Funnel(path.join(app.bowerDirectory, 'Ionicons/fonts'), {

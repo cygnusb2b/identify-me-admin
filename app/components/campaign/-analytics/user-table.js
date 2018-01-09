@@ -27,7 +27,7 @@ export default Component.extend({
             if (type === 'display' && data) {
               return moment(data).fromNow();
             } else if (type === 'export' && data) {
-              return moment(data).format('MMMM Do, YYYY h:mma Z');
+              return moment(data).format('M/D/YYYY h:mm A');
             } else {
               return data;
             }

@@ -11,7 +11,7 @@
   "dependencies": {
     "bootstrap": "v4.0.0-alpha.6",
     "Ionicons": "ionicons#^2.0.1",
-    "bootswatch": "https://github.com/thomaspark/bootswatch.git#v4",
+    "bootswatch": "https://github.com/thomaspark/bootswatch.git#v4.0.0-alpha.6",
     "highcharts": "^5.0.12",
     "datatables.net": "1.10.15",
     "datatables-buttons": "1.3.1",
